@@ -23,4 +23,29 @@ Parameters: limit, lowerCase, upperCase, digits, punctuation
 ```
 pw.single([8, 12], True, False, True, False)
 ```
- 
+
+Bulk password (default).
+```
+pw.bulk()
+```
+
+Bulk passwords (with parameters).
+Parameters: number, limit, lowerCase, upperCase, digits, punctuation
+```
+pw.bulk(10, [10, 16], True, False, True, True)
+```
+
+Generate file (default)
+```
+pw.file()
+```
+
+Generate file (with parameters). Parameters: number, filePath, separator, limit, lowerCase, upperCase, digits, punctuation
+```
+pw.file(50, "list.txt", "\n", [10, 16], True, False, True, True)
+```
+
+Generate CSV file
+```
+pw.file(50, "password.csv", ",")
+```
