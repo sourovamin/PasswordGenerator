@@ -68,7 +68,7 @@ class PwGtor:
     
     @return: list
     """
-    def bulk(self, number = 1, limit = [8, 16], lowerCase = True, upperCase = True, digits = True, punctuation = True):
+    def bulk(self, number = 5, limit = [8, 16], lowerCase = True, upperCase = True, digits = True, punctuation = True):
         passwords = []
         for x in range(number):
             password = self.generate(limit, lowerCase, upperCase, digits, punctuation)
@@ -102,5 +102,38 @@ class PwGtor:
     def single(self, limit = [8, 16], lowerCase = True, upperCase = True, digits = True, punctuation = True):
 
         return self.generate(limit, lowerCase, upperCase, digits, punctuation)
+
+    """
+        Method to generate a file with bulk passwords.
+
+        @type number: int
+        @param number: number of passwords, default: 1
+
+        @type limit: int or list
+        @param x: range of the password characters, default: [8, 16]
+
+        @type lowerCase: boolean
+        @param lowerCase: lower case characters in password or not, default: True
+
+        @type upperCase: boolean
+        @param upperCase: upper case characters in password or not, default: True
+
+        @type lowerCase: digits
+        @param lowerCase: digits in password or not, default: True
+
+        @type lowerCase: punctuation
+        @param lowerCase: punctuation characters in password or not, default: True
+
+        @create: file 
+        """
+
+    def file(self, number=5, filePath = "passwords.txt", seperator = "\n", limit=[8, 16], lowerCase=True, upperCase=True, digits=True, punctuation=True):
+        pf = open(filePath, "w+")
+        for x in range(number):
+            password = self.generate(limit, lowerCase, upperCase, digits, punctuation)
+            pf.write(password + seperator)
+
+        pf.close()
+        return
 
 
